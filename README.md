@@ -49,6 +49,45 @@ The head of the cleaned DataFrame is shown below:
 |   2012 |       6 | Minnesota | East North Central | severe weather     |              2550 |                68200 | 2012-06-19 04:30:00 |
 |   2015 |       7 | Minnesota | East North Central | severe weather     |              1740 |               250000 | 2015-07-18 02:00:00 |
 
+### Univariate Analysis
+
+<iframe
+  src="assets/uni_plt1.html"
+  width="800"
+  height="500"
+  frameborder="0"
+></iframe>
+
+The bar chart above shows the distribution of power outages by cause category. Severe weather is by far the most common cause, accounting for nearly 750 outages — almost double the next most common cause, intentional attacks. This confirms that severe weather is the dominant driver of major power outages in the U.S. and justifies the focus on it.
+
+<iframe
+  src="assets/uni_plt2.html"
+  width="800"
+  height="500"
+  frameborder="0"
+></iframe>
+
+The bar chart above shows the distribution of power outages by year. There is a clear upward trend from 2000 to 2011, peaking at over 250 outages, before declining. Note that 2016 appears low because the dataset only covers through July 2016.
+
+### Bivariate Analysis
+
+<iframe
+  src="assets/bi_plt1.html"
+  width="800"
+  height="500"
+  frameborder="0"
+></iframe>
+
+The line chart above shows the median outage duration of severe weather outages over time. Interestingly, the trend is downward — outages in the early 2000s lasted much longer on average, suggesting improvements in grid restoration speed over time despite more frequent outages.
+
+<iframe
+  src="assets/bi_plt2.html"
+  width="800"
+  height="500"
+  frameborder="0"
+></iframe>
+
+The line chart above shows the frequency of severe weather outages per year. There is a clear upward trend from 2000 to 2011, with a peak of over 100 outages in 2011, suggesting that severe weather outages have become more frequent over time.
 
 ### Interesting Aggregates
 
@@ -96,6 +135,13 @@ A permutation test was run using TVD as the test statistic. The observed TVD was
 
 The plot below shows the distribution of `cause_category` when `customers_affected` is missing vs. not missing, illustrating the dependency found above.
 
+<iframe
+  src="assets/fig_missing.html"
+  width="800"
+  height="500"
+  frameborder="0"
+></iframe>
+
 
 ## Hypothesis Testing
 **Null Hypothesis**: The average number of severe weather outages per year is the same in the first half (2000-2007) and the second half (2008-2016) of the dataset.
@@ -111,6 +157,13 @@ The plot below shows the distribution of `cause_category` when `customers_affect
 **P-value**: 0.0180
 
 **Conclusion**: Since the p-value of 0.0180 is below the significance level of 0.05, the null hypothesis is rejected. The data is consistent with the idea that severe weather outages became more frequent in the second half of the dataset (2008-2016) compared to the first half (2000-2007). However, since this is a permutation test and not a randomized controlled trial, it cannot be concluded that time itself caused the increase.
+
+<iframe
+  src="assets/fig_hyp.html"
+  width="800"
+  height="500"
+  frameborder="0"
+></iframe>
 
 ## Framing a Prediction Problem
 **Prediction Problem**: Predict whether a power outage was caused by severe weather or not.
